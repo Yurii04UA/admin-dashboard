@@ -5,18 +5,20 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import '../Login/Login.scss';
 import './Registration.scss';
 import { useState } from "react";
+import AuthBodyTitle from "../AuthWindow/AuthBodyTitle";
 
 const Registration = () => {
-    const [showPass, setShowPass] = useState(true);
+    const [showPass1, setShowPass1] = useState(true);
+    const [showPass2, setShowPass2] = useState(true);
+    const submitHandler = (event: React.FormEvent) => {
+        event.preventDefault();
+    };
     return (
         <>
             <AuthWindow isFooter={false}>
                 <div className="auth-reg">
-                    <div className='title'>
-                        <h2>Sign Up</h2>
-                        <p>Create a new account</p>
-                    </div>
-                    <form >
+                    <AuthBodyTitle title="Sing up" subTitle="Create a new account" />
+                    <form onSubmit={submitHandler}>
                         <label>
                             email
                             <input type="text" placeholder="Email address" />
@@ -31,14 +33,19 @@ const Registration = () => {
                         </label>
                         <label>
                             password
-                            <input type="password" placeholder="Password" />
-                            
+                            <input className="input-icon" type={showPass1 ? "password" : "text"} placeholder="Password" />
+                            <button className="icon-1" onClick={() => setShowPass1(!showPass1)}>
+                                {showPass1 ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
+                            </button>
                         </label>
                         <label>
                             confirm password
-                            <input type="password" placeholder="Password" />
+                            <input className="input-icon" type={showPass2 ? "password" : "text"} placeholder="Password" />
+                            <button className="icon-2" onClick={() => setShowPass2(!showPass2)}>
+                                {showPass2 ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
+                            </button>
                         </label>
-                        <Button children={'Sing up'} url={"/"} isCorrect={true}/>
+                        <Button children={'Sing up'} />
                     </form>
                 </div>
             </AuthWindow>

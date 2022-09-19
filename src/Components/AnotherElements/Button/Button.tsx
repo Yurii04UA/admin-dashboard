@@ -17,7 +17,7 @@ const Button = ({ children,url,isCorrect }: IButtonProps) => {
     }
     return (
         <>
-            <button onClick={() => redirectHandler(url)} className="btn" >{children}</button>
+            <button type='submit' onClick={() => redirectHandler(url)} className="btn" >{children}</button>
         </>
     );
 };

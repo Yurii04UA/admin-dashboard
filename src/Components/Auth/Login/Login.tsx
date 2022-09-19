@@ -12,11 +12,10 @@ const Login = () => {
   };
 
   const [showPass, setShowPass] = useState(true);
-  const [isLogin,setIsLogin] = useState(false)
 
   return (
     <>
-      <AuthWindow>
+      <AuthWindow isFooter={true}>
         <div className="auth-login">
           <div className='title'>
             <h2>Log In to Dashboard Kit</h2>
@@ -25,20 +24,22 @@ const Login = () => {
           <form onSubmit={submitHandler}>
             <label>
               email
-              <input type="text" />
+              <input type="text" placeholder="Email address" />
             </label>
             <label>
               password
               <input
                 className="input-icon"
                 type={showPass ? "password" : "text"}
+                placeholder='Password'
               />
               <button className="icon" onClick={() => setShowPass(!showPass)}>
                 {showPass ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
               </button>
             </label>
-            <Button children={'Log in'} url={"/"} isCorrect={isLogin}/>
+            <Button children={'Log in'} url={"/"} isCorrect={true}/>
           </form>
+          
         </div>
       </AuthWindow>
     </>

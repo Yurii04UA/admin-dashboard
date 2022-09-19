@@ -1,9 +1,13 @@
 import AuthWindow from "../AuthWindow/AuthWindow";
-import Button from '../../AnotherElements/Button/Button'
-import '../Login/Login.scss'
+import Button from '../../AnotherElements/Button/Button';
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import '../Login/Login.scss';
 import './Registration.scss';
+import { useState } from "react";
 
 const Registration = () => {
+    const [showPass, setShowPass] = useState(true);
     return (
         <>
             <AuthWindow isFooter={false}>
@@ -28,6 +32,7 @@ const Registration = () => {
                         <label>
                             password
                             <input type="password" placeholder="Password" />
+                            
                         </label>
                         <label>
                             confirm password

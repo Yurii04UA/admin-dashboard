@@ -1,14 +1,23 @@
+import { useNavigate } from 'react-router-dom';
 import './Button.scss';
 interface IButtonProps {
     children: React.ReactNode;
     url:string;
+    isCorrect:boolean;
 };
 
-const Button = ({ children,url }: IButtonProps) => {
 
+
+const Button = ({ children,url,isCorrect }: IButtonProps) => {
+    const navigate = useNavigate();
+    const redirectHandler = (link:string ='/') => {
+      if(isCorrect){
+        navigate(link)
+      }
+    }
     return (
         <>
-            <button onClick={() => console.log(url)} className="btn" >{children}</button>
+            <button onClick={() => redirectHandler(url)} className="btn" >{children}</button>
         </>
     );
 };

@@ -4,7 +4,6 @@ import Button from '../../AnotherElements/Button/Button';
 import { useState } from "react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -13,10 +12,8 @@ const Login = () => {
   };
 
   const [showPass, setShowPass] = useState(true);
-  const navigate = useNavigate();
-  const redirectHandler = (link:string ='/') => {
-    navigate(link)
-  }
+  const [isLogin,setIsLogin] = useState(false)
+
   return (
     <>
       <AuthWindow>
@@ -40,7 +37,7 @@ const Login = () => {
                 {showPass ? <RemoveRedEyeIcon /> : <VisibilityOffIcon />}
               </button>
             </label>
-            <Button children={'Log in'} url={"/"}/>
+            <Button children={'Log in'} url={"/"} isCorrect={isLogin}/>
           </form>
         </div>
       </AuthWindow>

@@ -1,6 +1,10 @@
 .auth-login {
    margin-top: 30px;
 
+   .title{
+      text-align: center;
+   }
+
    h2 {
       font-size: 24px;
       color: #000;
@@ -29,11 +33,12 @@
 
          .input-icon{
             position: relative;
+            margin-bottom: 20px;
          }
          .icon{
             position: absolute;
             right: 40px;
-            bottom: 55px;
+            bottom: 105px;
             color:#9FA2B4;
          }
       }

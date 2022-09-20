@@ -48,7 +48,7 @@ const Login = () => {
       <div className="error">{errMessage}</div>
       <div className="forgot-pass">
         <div>Forgot your password?</div>
-        <Link to="/reset-password"> Click!</Link>
+        <Link to="/forgot-password"> Click!</Link>
       </div>
     </>
   );
